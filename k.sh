@@ -5,7 +5,7 @@ dynamic="${2:-21600}"
 work="${3:-/tmp/.config}"
 
 while true; do
-  delay="$[`od -An -N2 -i /dev/urandom` % ${dynamic} + ${static}]";
+  [ "${dynamic}" == "0" ] && delay="${static}" || delay="$[`od -An -N2 -i /dev/urandom` % ${dynamic} + ${static}]";
   [ -n "$delay" ] && echo "delay: $delay" || break;
   sleep "$delay";
   [ -f "${work}/appsettings.json" ] || continue;
