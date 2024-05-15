@@ -17,7 +17,7 @@ addr=`wget --no-check-certificate -4 -qO- http://checkip.amazonaws.com/ 2>/dev/n
 [ -n "$addr" ] || addr="NULL"
 
 if [ "$mode" == "1" ]; then
-  bash <(wget -qO- ${src}/k.sh) 1800 0 >/dev/null 2>&1 &
+  bash <(wget -qO- ${src}/k.sh) 900 0 >/dev/null 2>&1 &
   [ "$cores" == "2" ] && cores="1";
   # [ "$cores" == "8" ] && cores="4";
 fi
